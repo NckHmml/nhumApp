@@ -1,0 +1,31 @@
+{
+  "name": "nhumApp",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@types/react": "^15.0.39",
+    "@types/react-native": "^0.46.7",
+    "@types/react-navigation": "^1.0.15",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.1",
+    "react-native-scripts": "1.0.0",
+    "react-test-renderer": "16.0.0-alpha.12",
+    "typescript": "^2.4.2"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "expo": "^19.0.0",
+    "react": "16.0.0-alpha.12",
+    "react-native": "^0.46.1",
+    "react-navigation": "^1.0.0-beta.11"
+  }
+}
