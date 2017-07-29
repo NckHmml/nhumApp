@@ -1,14 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2015",
-    "jsx": "react",
+    "target": "es2017",
+    "jsx": "react-native",
     "noEmitOnError": true,
     "rootDir": "./src",
-    "baseUrl": "./src",
-    "paths": {
-      "~/*": [
-        "*"
-      ]
-    }
+    "baseUrl": "./src"
   }
 }

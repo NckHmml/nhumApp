@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { Button, StyleSheet, Text, View } from "react-native";
 
 export class InfoScreen extends React.Component {
