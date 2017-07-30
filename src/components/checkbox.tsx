@@ -36,10 +36,13 @@ interface ICheckboxState {
 export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
   state: ICheckboxState = {
     checked: this.props.checked || false,
-    slideAnimation: new Animated.Value(0)
+    slideAnimation: new Animated.Value(0),
+    
   };
 
-  getEasing(): (value: number) => number {
+  private isAnimating: boolean = false;
+
+  private getEasing(): (value: number) => number {
     switch (this.props.animation) {
       case CheckboxAnimation.Back: {
         return Easing.back(1.7);
@@ -65,9 +68,16 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
     }
   }
 
-  onPress = () => {
+  private onFinishAnimation = () => {
+    this.isAnimating = false;
+  };
+
+  private onPress = () => {
     const { onCheckedChange } = this.props;
     const { checked, slideAnimation } = this.state;
+
+    if (this.isAnimating)
+      return;
 
     this.setState({
       checked: !checked
@@ -75,6 +85,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
       if (onCheckedChange)
         onCheckedChange(this.state.checked);
       // Animation
+      this.isAnimating = true;
       if (this.state.checked)
         Animated.timing(
           slideAnimation,
@@ -83,7 +94,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
             easing: this.getEasing(),
             duration: duration
           }
-        ).start();
+        ).start(this.onFinishAnimation);
       else
         Animated.timing(
           slideAnimation,
@@ -92,7 +103,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
             easing: this.getEasing(),
             duration: duration
           }
-        ).start();
+        ).start(this.onFinishAnimation);
     });
   }
 
