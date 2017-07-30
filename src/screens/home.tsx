@@ -20,40 +20,54 @@ export class HomeScreen extends React.Component<NavigationScreenProps<{}>> {
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.row}>
-            <Text style={styles.header}>Hiragana</Text>
+            <Text style={styles.header}>Checkbox animations</Text>
             <Checkbox 
               title="Select all"
+              animation={CheckboxAnimation.None}
             />
           </View>
           <View style={styles.row}>
-            <Text>Set 1</Text>
+            <Text>Back</Text>
             <Checkbox 
               title="Select all"
               animation={CheckboxAnimation.Back}
             />
           </View>
           <View style={styles.row}>
-            <Text>Set 2</Text>
+            <Text>Bounce</Text>
             <Checkbox 
               title="Select all"
               animation={CheckboxAnimation.Bounce}
             />
           </View>
           <View style={styles.row}>
-            <Text>Set 3</Text>
+            <Text>Ease</Text>
             <Checkbox 
               title="Select all"
               animation={CheckboxAnimation.Ease}
             />
           </View>
           <View style={styles.row}>
-            <Text>Set 4</Text>
+            <Text>Elastic</Text>
             <Checkbox 
               title="Select all"
               animation={CheckboxAnimation.Elastic}
             />
           </View>
-          <Text style={styles.header}>Katana</Text>
+          <View style={styles.row}>
+            <Text>Exponential</Text>
+            <Checkbox 
+              title="Select all"
+              animation={CheckboxAnimation.Exponential}
+            />
+          </View>
+          <View style={styles.row}>
+            <Text>Linear</Text>
+            <Checkbox 
+              title="Select all"
+              animation={CheckboxAnimation.Linear}
+            />
+          </View>
           <Button
             onPress={this.onNextPage}
             title="Start"

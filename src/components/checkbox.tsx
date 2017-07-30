@@ -19,11 +19,12 @@ interface ICheckboxProps {
 }
 
 export enum CheckboxAnimation {
-  None, // Default
+  None,
   Back,
   Bounce,
   Ease,
   Elastic,
+  Exponential,
   Linear // Default
 }
 
@@ -41,7 +42,7 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
   getEasing(): (value: number) => number {
     switch (this.props.animation) {
       case CheckboxAnimation.Back: {
-        return Easing.back(Math.sqrt(margin));
+        return Easing.back(1.7);
       }
       case CheckboxAnimation.Bounce: {
         return Easing.bounce;
@@ -50,7 +51,16 @@ export class Checkbox extends React.Component<ICheckboxProps, ICheckboxState> {
         return Easing.ease;
       }
       case CheckboxAnimation.Elastic: {
-        return Easing.elastic(Math.sqrt(margin));
+        return Easing.elastic(1);
+      }
+      case CheckboxAnimation.Exponential: {
+        return Easing.exp;
+      }
+      case CheckboxAnimation.None: {
+        return Easing.step0;
+      }
+      default: {
+        return Easing.linear;
       }
     }
   }
