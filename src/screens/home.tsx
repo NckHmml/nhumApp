@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { NavigationScreenProps } from "react-navigation";
 
 import { Button } from "../components/button";
-import { Checkbox } from "../components/checkbox";
+import { Checkbox, CheckboxAnimation } from "../components/checkbox";
 
 export class HomeScreen extends React.Component<NavigationScreenProps<{}>> {
   static navigationOptions = {
@@ -27,15 +27,31 @@ export class HomeScreen extends React.Component<NavigationScreenProps<{}>> {
           </View>
           <View style={styles.row}>
             <Text>Set 1</Text>
-            <Checkbox title="Select all" />
+            <Checkbox 
+              title="Select all"
+              animation={CheckboxAnimation.Back}
+            />
           </View>
           <View style={styles.row}>
-            <Text>Set 1</Text>
-            <Checkbox title="Select all" />
+            <Text>Set 2</Text>
+            <Checkbox 
+              title="Select all"
+              animation={CheckboxAnimation.Bounce}
+            />
           </View>
           <View style={styles.row}>
-            <Text>Set 1</Text>
-            <Checkbox title="Select all" />
+            <Text>Set 3</Text>
+            <Checkbox 
+              title="Select all"
+              animation={CheckboxAnimation.Ease}
+            />
+          </View>
+          <View style={styles.row}>
+            <Text>Set 4</Text>
+            <Checkbox 
+              title="Select all"
+              animation={CheckboxAnimation.Elastic}
+            />
           </View>
           <Text style={styles.header}>Katana</Text>
           <Button
